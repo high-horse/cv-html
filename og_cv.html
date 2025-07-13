@@ -1,0 +1,537 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>High Horse - CV</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                font-family: "Arial", sans-serif;
+                line-height: 1.6;
+                color: #333;
+                background: #f5f5f5;
+            }
+
+            .cv-container {
+                max-width: 210mm;
+                margin: 20px auto;
+                background: white;
+                box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+                min-height: 297mm;
+            }
+
+            .header {
+                background: linear-gradient(135deg, #2c3e50, #3498db);
+                color: white;
+                padding: 40px 50px;
+                display: flex;
+                align-items: center;
+                gap: 30px;
+            }
+
+            .photo-placeholder {
+                width: 120px;
+                height: 150px;
+                background: rgba(255, 255, 255, 0.1);
+                border: 3px solid rgba(255, 255, 255, 0.3);
+                border-radius: 8px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 12px;
+                text-align: center;
+                flex-shrink: 0;
+            }
+
+            .photo-placeholder img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: 5px;
+            }
+
+            .header-info h1 {
+                font-size: 2.5em;
+                margin-bottom: 10px;
+                font-weight: 300;
+            }
+
+            .header-info .title {
+                font-size: 1.2em;
+                margin-bottom: 20px;
+                opacity: 0.9;
+            }
+
+            .contact-info {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 20px;
+                font-size: 0.9em;
+            }
+
+            .contact-item {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            }
+
+            .content {
+                padding: 0 50px 50px;
+            }
+
+            .section {
+                margin: 20px 0;
+            }
+
+            .section-title {
+                font-size: 1.4em;
+                color: #2c3e50;
+                margin-bottom: 20px;
+                padding-bottom: 8px;
+                border-bottom: 2px solid #3498db;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+            }
+
+            .summary {
+                background: #f8f9fa;
+                padding: 25px;
+                border-left: 4px solid #3498db;
+                margin: 30px 0;
+                font-size: 1.05em;
+                line-height: 1.7;
+            }
+
+            .experience-item,
+            .education-item {
+                margin-bottom: 30px;
+                padding: 20px;
+                background: #fafafa;
+                border-radius: 8px;
+                border-left: 4px solid #3498db;
+            }
+
+            .job-title {
+                font-size: 1.2em;
+                font-weight: bold;
+                color: #2c3e50;
+                margin-bottom: 5px;
+            }
+
+            .company-info {
+                color: #666;
+                margin-bottom: 15px;
+                font-style: italic;
+            }
+
+            .job-description {
+                margin-bottom: 15px;
+            }
+
+            .job-description ul {
+                padding-left: 20px;
+            }
+
+            .job-description li {
+                margin-bottom: 8px;
+                line-height: 1.5;
+            }
+
+            .tech-stack {
+                background: #e8f4f8;
+                padding: 15px;
+                border-radius: 5px;
+                margin-top: 15px;
+            }
+
+            .tech-stack-title {
+                font-weight: bold;
+                color: #2c3e50;
+                margin-bottom: 8px;
+            }
+
+            .skills-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 20px;
+            }
+
+            .skill-category {
+                background: #f8f9fa;
+                padding: 20px;
+                border-radius: 8px;
+                border-left: 4px solid #3498db;
+            }
+
+            .skill-category h4 {
+                color: #2c3e50;
+                margin-bottom: 10px;
+                font-size: 1.1em;
+            }
+
+            .languages {
+                display: flex;
+                gap: 30px;
+                flex-wrap: wrap;
+            }
+
+            .language-item {
+                background: #f8f9fa;
+                padding: 15px 20px;
+                border-radius: 8px;
+                text-align: center;
+                min-width: 120px;
+            }
+
+            .language-name {
+                font-weight: bold;
+                color: #2c3e50;
+            }
+
+            .language-level {
+                color: #666;
+                font-size: 0.9em;
+            }
+
+            .hobbies-list {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+
+            .hobby-item {
+                background: #e8f4f8;
+                padding: 10px 15px;
+                border-radius: 20px;
+                font-size: 0.9em;
+                color: #2c3e50;
+            }
+
+            @media print {
+                body {
+                    background: white;
+                }
+                .cv-container {
+                    box-shadow: none;
+                    margin: 0;
+                    max-width: none;
+                }
+
+                /* Prevent breaking inside these important containers */
+                .experience-item,
+                .education-item,
+                .tech-stack,
+                .skill-category {
+                    break-inside: avoid; /* For modern browsers */
+                    page-break-inside: avoid; /* For older browsers */
+                    -webkit-column-break-inside: avoid; /* Safari */
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="cv-container">
+            <div class="header">
+                <div class="photo-placeholder">
+                    <img
+                        src="professional-image.jpg"
+                        alt="Professional Photo"
+                    />
+                </div>
+
+                <div class="header-info">
+                    <h1>High Horse</h1>
+                    <div class="title">
+                        Full-Stack Developer with Research Interests in Data
+                        Analysis and Information Systems | BCA Graduate
+                    </div>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span>📍</span> Somewhere-26, Kathmandu, Nepal
+                        </div>
+                        <div class="contact-item">
+                            <span>📱</span> +977 98########
+                        </div>
+                        <div class="contact-item">
+                            <span>✉️</span> g*********@gmail.com
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content">
+                <div class="summary">
+                    <strong>Professional Summary:</strong> Full-stack developer
+                    with 3+ years of experience specializing in web technologies
+                    and government system development. Strong background in PHP,
+                    Laravel, Vue.js, and database management. Currently pursuing
+                    MSc in Computer Engineering at ISCTE (starting September
+                    2025). Seeking to leverage technical expertise and
+                    analytical skills in a research environment focused on
+                    Information Systems and Data Analysis for Public Policy
+                    Planning.
+                </div>
+
+                <div class="section">
+                    <h2 class="section-title">Education</h2>
+
+                    <div class="education-item">
+                        <div class="job-title">MSc in Computer Engineering</div>
+                        <div class="company-info">
+                            ISCTE - Instituto Universitário de Lisboa | Starting
+                            September 2025
+                        </div>
+                        <div class="job-description">
+                            Upcoming master's program in Computer Engineering
+                            with focus on advanced computing technologies and
+                            research methodologies.
+                        </div>
+                    </div>
+
+                    <div class="education-item">
+                        <div class="job-title">
+                            Bachelor of Computer Application (BCA)
+                        </div>
+                        <div class="company-info">
+                            Aryan School of Engineering, Bagmati | Graduated
+                            October 2023
+                        </div>
+                        <div class="job-description">
+                            Specialized in Science and Technology with
+                            comprehensive coverage of core computer science
+                            principles and advanced programming skills.
+                        </div>
+                    </div>
+
+                    <div class="education-item">
+                        <div class="job-title">
+                            Higher Secondary Education (+2)
+                        </div>
+                        <div class="company-info">
+                            Om International College, Kathmandu | Completed
+                            October 2016
+                        </div>
+                        <div class="job-description">Science Stream</div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2 class="section-title">Professional Experience</h2>
+
+                    <div class="experience-item">
+                        <div class="job-title">Full-Stack Developer</div>
+                        <div class="company-info">
+                            YAJ Technology Pvt Ltd, Kathmandu | May 2022 -
+                            Present
+                        </div>
+                        <div class="job-description">
+                            <ul>
+                                <li>
+                                    Developed and maintained large-scale
+                                    government systems including VRS Bagmati,
+                                    Bagmati Project Monitoring System, Nepal
+                                    Scout, Hello Sarkar, and provincial
+                                    monitoring systems
+                                </li>
+                                <li>
+                                    Collaborated with government clients for
+                                    workflow visualization and implemented
+                                    changes based on regular feedback
+                                </li>
+                                <li>
+                                    Deployed multiple projects across different
+                                    server environments with focus on security
+                                    and performance optimization
+                                </li>
+                                <li>
+                                    Implemented advanced server technologies
+                                    including reverse proxy, static file
+                                    caching, FastCGI caching, and server
+                                    hardening
+                                </li>
+                                <li>
+                                    Managed sports management systems and
+                                    various municipal projects
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="tech-stack">
+                            <div class="tech-stack-title">
+                                Technologies Used:
+                            </div>
+                            <strong>Backend:</strong> Laravel, Backpack |
+                            <strong>Frontend:</strong> Quasar, Nuxt, Vuetify,
+                            Vue2/Vue3, Pinia, Vuex |
+                            <strong>Database:</strong> MySQL, PostgreSQL
+                        </div>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="job-title">Software Developer</div>
+                        <div class="company-info">
+                            Aarya Technology & Management Pvt Ltd, Kathmandu |
+                            March 2021 - April 2022
+                        </div>
+                        <div class="job-description">
+                            <ul>
+                                <li>
+                                    Developed comprehensive Hotel Management
+                                    System
+                                </li>
+                                <li>
+                                    Implemented React-based frontend with PHP
+                                    backend integration
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="tech-stack">
+                            <div class="tech-stack-title">
+                                Technologies Used:
+                            </div>
+                            <strong>Backend:</strong> PHP |
+                            <strong>Frontend:</strong> React |
+                            <strong>Database:</strong> MySQL
+                        </div>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="job-title">Software Development Intern</div>
+                        <div class="company-info">
+                            Ekbana Solutions | December 2020 - February 2021
+                        </div>
+                        <div class="job-description">
+                            <ul>
+                                <li>
+                                    Gained foundational knowledge in web
+                                    development technologies (HTML, CSS,
+                                    JavaScript)
+                                </li>
+                                <li>
+                                    Learned backend development with PHP and
+                                    Laravel framework
+                                </li>
+                                <li>
+                                    Acquired skills in version control (Git),
+                                    database management (SQL, MySQL), and
+                                    Quality Assurance
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2 class="section-title">Technical Skills</h2>
+                    <div class="skills-grid">
+                        <div class="skill-category">
+                            <h4>Backend Development</h4>
+                            <p>PHP, Laravel, Backpack</p>
+                        </div>
+                        <div class="skill-category">
+                            <h4>Frontend Development</h4>
+                            <p>
+                                HTML, CSS, JavaScript, Vue.js, React, Quasar,
+                                Nuxt, Vuetify
+                            </p>
+                        </div>
+                        <div class="skill-category">
+                            <h4>Database Management</h4>
+                            <p>SQL, MySQL, PostgreSQL</p>
+                        </div>
+                        <div class="skill-category">
+                            <h4>Server & DevOps</h4>
+                            <p>
+                                Nginx, Linux (Fedora, Debian), Git, Server
+                                Deployment
+                            </p>
+                        </div>
+                        <div class="skill-category">
+                            <h4>Research Relevant Skills</h4>
+                            <p>
+                                Data Analysis, System Architecture, Problem
+                                Solving, Technical Documentation
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2 class="section-title">Languages</h2>
+                    <div class="languages">
+                        <div class="language-item">
+                            <div class="language-name">English</div>
+                            <div class="language-level">Fluent</div>
+                        </div>
+                        <div class="language-item">
+                            <div class="language-name">Nepali</div>
+                            <div class="language-level">Native</div>
+                        </div>
+                        <div class="language-item">
+                            <div class="language-name">Hindi</div>
+                            <div class="language-level">Conversational</div>
+                        </div>
+                        <div class="language-item">
+                            <div class="language-name">Portugese</div>
+                            <div class="language-level">Learning</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2 class="section-title">Additional Interests</h2>
+                    <div class="hobbies-list">
+                        <div class="hobby-item">
+                            Web Security & Ethical Hacking
+                        </div>
+                        <div class="hobby-item">
+                            Programming Languages Research
+                        </div>
+                        <div class="hobby-item">UX/UI Design Principles</div>
+                        <div class="hobby-item">
+                            Hiking & Outdoor Activities
+                        </div>
+                        <div class="hobby-item">Technology Innovation</div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <!-- <h2 class="section-title">Key Qualifications for Student Researcher Role</h2> -->
+                    <h2 class="section-title">Key Qualifications</h2>
+                    <div class="summary">
+                        <ul style="padding-left: 20px">
+                            <li>
+                                <strong>Research & Data Analysis:</strong>
+                                Extensive experience with database management,
+                                system analysis, and technical problem-solving
+                                through government project development
+                            </li>
+                            <li>
+                                <strong>Information Systems Expertise:</strong>
+                                3+ years of hands-on experience developing and
+                                maintaining complex information systems for
+                                public sector clients
+                            </li>
+                            <li>
+                                <strong>Collaborative Skills:</strong> Proven
+                                track record of working with cross-functional
+                                teams and client stakeholders in government
+                                project environments
+                            </li>
+                            <li>
+                                <strong>Technical Documentation:</strong>
+                                Experience in creating technical reports and
+                                documentation for complex system implementations
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
