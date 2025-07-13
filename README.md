@@ -32,4 +32,4 @@ This project, `cv-html`, is a simple HTML-based portfolio or CV (Curriculum Vita
 ## License
 
 This project is open-source and available under the [MIT License](https://opensource.org/licenses/MIT).
-```
+
